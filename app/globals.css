@@ -58,7 +58,7 @@
   }
 
   .heading {
-    @apply max-w-4xl text-4xl font-bold uppercase leading-[50px] md:text-5xl md:leading-[60px];
+    @apply text-4xl font-bold uppercase leading-[50px] md:max-w-4xl md:text-5xl md:leading-[60px];
   }
 
   .sub-heading {
