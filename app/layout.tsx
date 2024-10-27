@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { DynaPuff, Rubik } from "next/font/google";
 
+import "easymde/dist/easymde.min.css";
+
 import { ThemeProvider } from "@/providers/theme-provider";
 
 import "./globals.css";

@@ -14,7 +14,7 @@ const GlobalNavbar = async () => {
 
   return (
     <header className="font-work-sans border-b px-5 py-3 shadow-sm">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between gap-5">
         <Link href="/" className="flex items-center gap-3">
           <Image src="/logo.svg" alt="logo" width={50} height={50} />
           <span className="text-sm font-bold">Project Showcase</span>

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { IconArrowRight, IconEyeFilled } from "@tabler/icons-react";
+import { IconEyeFilled } from "@tabler/icons-react";
 
 import {
   Card,
@@ -11,21 +11,21 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { ProjectCardType } from "@/types";
 
 import { formatDate } from "../../lib/utils";
 import { Badge } from "../ui/badge";
-import { Button } from "../ui/button";
 
-const StartupCard = ({ post }: { post: StartupTypeCard }) => {
+const ProjectCard = ({ post }: { post: ProjectCardType }) => {
   const {
     _id,
     _createdAt: createdAt,
     views,
-    author: { id, name },
+    author,
     title,
     description,
     category,
-    image,
+    mainImage,
   } = post;
   return (
     <Card className="border-4">
@@ -39,8 +39,10 @@ const StartupCard = ({ post }: { post: StartupTypeCard }) => {
             <span className="text-sm font-medium">{views}</span>
           </div>
         </div>
-        <Link href={`/profile/${id}`}>
-          <p className="line-clamp-1 text-sm text-muted-foreground">{name}</p>
+        <Link href={`/profile/${author?._id}`}>
+          <p className="line-clamp-1 text-sm text-muted-foreground">
+            {author?.name}
+          </p>
         </Link>
         <Link href={`/project/${_id}`}>
           <CardTitle className="line-clamp-1 text-xl">{title}</CardTitle>
@@ -48,10 +50,10 @@ const StartupCard = ({ post }: { post: StartupTypeCard }) => {
         <CardDescription>{description}</CardDescription>
       </CardHeader>
       <CardContent>
-        <div className="relative aspect-video h-52 w-full">
+        <div className="relative aspect-square h-52 w-full md:aspect-video">
           <Image
-            src={image}
-            alt={title}
+            src={mainImage!}
+            alt={title!}
             fill
             className="rounded-xl object-cover"
           />
@@ -59,19 +61,19 @@ const StartupCard = ({ post }: { post: StartupTypeCard }) => {
       </CardContent>
       <CardFooter>
         <div className="flex w-full items-center justify-between gap-5">
-          <Link href={`/?query=${category.toLowerCase()}`}>
+          <Link href={`/?query=${category?.toLowerCase()}`}>
             <Badge variant={"secondary"}>{category}</Badge>
           </Link>
-          <Link href={`/project/${_id}`}>
+          {/* <Link href={`/project/${_id}`}>
             <Button variant={"primary"} size={"lg"}>
               Read More
               <IconArrowRight className="size-5" />
             </Button>
-          </Link>
+          </Link> */}
         </div>
       </CardFooter>
     </Card>
   );
 };
 
-export default StartupCard;
+export default ProjectCard;

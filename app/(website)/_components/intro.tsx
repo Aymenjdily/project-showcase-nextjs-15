@@ -1,6 +1,6 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { IconStarFilled } from "@tabler/icons-react";
 
-import SearchForm from "@/components/shared/search-form";
 import { Badge } from "@/components/ui/badge";
 import DotPattern from "@/components/ui/dot-pattern";
 import { cn } from "@/lib/utils";
@@ -20,9 +20,9 @@ const Intro = ({ query }: { query: string }) => {
         Showcase Your Project&apos;s Potential and Attract Strategic
         Partnerships
       </p>
-      <div className="mx-auto mt-8 w-full max-w-3xl">
+      {/* <div className="mx-auto mt-8 w-full max-w-3xl">
         <SearchForm query={query} />
-      </div>
+      </div> */}
       <DotPattern
         width={20}
         height={20}
